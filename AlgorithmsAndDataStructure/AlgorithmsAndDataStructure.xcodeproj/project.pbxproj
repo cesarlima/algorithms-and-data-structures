@@ -10,6 +10,7 @@
 		8EA0C1AF2C622A7C0054737E /* AlgorithmsAndDataStructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA0C1A62C622A7C0054737E /* AlgorithmsAndDataStructure.framework */; };
 		8EA0C1B42C622A7C0054737E /* AlgorithmsAndDataStructureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA0C1B32C622A7C0054737E /* AlgorithmsAndDataStructureTests.swift */; };
 		8EA0C1B52C622A7C0054737E /* AlgorithmsAndDataStructure.h in Headers */ = {isa = PBXBuildFile; fileRef = 8EA0C1A92C622A7C0054737E /* AlgorithmsAndDataStructure.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8EA0C1C02C622BB10054737E /* SinglyLinkedListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA0C1BF2C622BB10054737E /* SinglyLinkedListTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +28,7 @@
 		8EA0C1A92C622A7C0054737E /* AlgorithmsAndDataStructure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlgorithmsAndDataStructure.h; sourceTree = "<group>"; };
 		8EA0C1AE2C622A7C0054737E /* AlgorithmsAndDataStructureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlgorithmsAndDataStructureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EA0C1B32C622A7C0054737E /* AlgorithmsAndDataStructureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmsAndDataStructureTests.swift; sourceTree = "<group>"; };
+		8EA0C1BF2C622BB10054737E /* SinglyLinkedListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglyLinkedListTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +79,18 @@
 		8EA0C1B22C622A7C0054737E /* AlgorithmsAndDataStructureTests */ = {
 			isa = PBXGroup;
 			children = (
+				8EA0C1BE2C622B800054737E /* DataStructure */,
 				8EA0C1B32C622A7C0054737E /* AlgorithmsAndDataStructureTests.swift */,
 			);
 			path = AlgorithmsAndDataStructureTests;
+			sourceTree = "<group>";
+		};
+		8EA0C1BE2C622B800054737E /* DataStructure */ = {
+			isa = PBXGroup;
+			children = (
+				8EA0C1BF2C622BB10054737E /* SinglyLinkedListTests.swift */,
+			);
+			path = DataStructure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EA0C1C02C622BB10054737E /* SinglyLinkedListTests.swift in Sources */,
 				8EA0C1B42C622A7C0054737E /* AlgorithmsAndDataStructureTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
