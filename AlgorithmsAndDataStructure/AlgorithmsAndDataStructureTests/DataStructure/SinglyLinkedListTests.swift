@@ -48,6 +48,10 @@ final class SinglyLinkedList<T: Equatable> {
         
         count += 1
     }
+    
+    func pop() -> Node<T>? {
+        return nil
+    }
 }
 
 final class SinglyLinkedListTests: XCTestCase {
@@ -87,5 +91,13 @@ final class SinglyLinkedListTests: XCTestCase {
         XCTAssertEqual(sut.tail, node3)
         XCTAssertNil(sut.tail!.next)
         XCTAssertEqual(sut.count, 3)
+    }
+    
+    func test_pop_returnsNilOnEmptyList() {
+        let sut = SinglyLinkedList<Int>()
+  
+        let result = sut.pop()
+        
+        XCTAssertNil(result)
     }
 }
