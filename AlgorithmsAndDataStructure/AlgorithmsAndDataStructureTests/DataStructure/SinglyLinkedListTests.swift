@@ -20,6 +20,10 @@ final class Node<T: Equatable>: Equatable {
         return lhs.value == rhs.value
         && lhs.next?.value == rhs.next?.value
     }
+    
+    func setNext(_ element: Node<T>?) {
+        next = element
+    }
 }
 
 final class SinglyLinkedList<T: Equatable> {
@@ -34,8 +38,14 @@ final class SinglyLinkedList<T: Equatable> {
     }
     
     func push(_ element: Node<T>) {
-        head = element
-        tail = element
+        if count == 0 {
+            head = element
+            tail = element
+        } else {
+            tail?.setNext(element)
+            tail = element
+        }
+        
         count += 1
     }
 }
@@ -59,5 +69,23 @@ final class SinglyLinkedListTests: XCTestCase {
         XCTAssertEqual(sut.head, node)
         XCTAssertEqual(sut.tail, node)
         XCTAssertEqual(sut.count, 1)
+    }
+    
+    func test_push_setsElementAsTailAndUpdatesHeadNextOnNonEmptyList() {
+        let sut = SinglyLinkedList<Int>()
+        let node = Node(value: 1)
+        let node2 = Node(value: 2)
+        let node3 = Node(value: 3)
+        
+        sut.push(node)
+        sut.push(node2)
+        sut.push(node3)
+        
+        XCTAssertEqual(sut.head, node)
+        XCTAssertEqual(sut.head!.next, node2)
+        XCTAssertEqual(sut.head!.next!.next, node3)
+        XCTAssertEqual(sut.tail, node3)
+        XCTAssertNil(sut.tail!.next)
+        XCTAssertEqual(sut.count, 3)
     }
 }
