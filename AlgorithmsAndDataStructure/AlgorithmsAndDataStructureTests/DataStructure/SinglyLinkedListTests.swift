@@ -70,6 +70,10 @@ final class SinglyLinkedList<T: Equatable> {
 
         return current
     }
+    
+    func shift() -> Node<T>? {
+        nil
+    }
 }
 
 final class SinglyLinkedListTests: XCTestCase {
@@ -165,5 +169,13 @@ final class SinglyLinkedListTests: XCTestCase {
         XCTAssertNil(sut.head?.next)
         XCTAssertNil(sut.tail?.next)
         XCTAssertEqual(sut.count, 1)
+    }
+    
+    func test_shift_returnsNilOnEmptyList() {
+        let sut = SinglyLinkedList<Int>()
+        
+        let result = sut.shift()
+        
+        XCTAssertNil(result)
     }
 }
