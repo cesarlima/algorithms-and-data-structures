@@ -50,6 +50,16 @@ final class SinglyLinkedList<T: Equatable> {
     }
     
     func pop() -> Node<T>? {
+        guard count > 0 else { return nil }
+        
+        if head?.next == nil {
+            let result = head
+            head = nil
+            tail = nil
+            count -= 1
+            return result
+        }
+        
         return nil
     }
 }
@@ -99,5 +109,18 @@ final class SinglyLinkedListTests: XCTestCase {
         let result = sut.pop()
         
         XCTAssertNil(result)
+    }
+    
+    func test_pop_removesHeadTailAndDecreasesCountOnSingleElementList() {
+        let sut = SinglyLinkedList<Int>()
+        let node = Node(value: 1)
+        sut.push(node)
+ 
+        let result = sut.pop()
+        
+        XCTAssertEqual(result, node)
+        XCTAssertNil(sut.head)
+        XCTAssertNil(sut.tail)
+        XCTAssertEqual(sut.count, 0)
     }
 }
