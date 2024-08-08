@@ -72,7 +72,16 @@ final class SinglyLinkedList<T: Equatable> {
     }
     
     func shift() -> Node<T>? {
-        nil
+        guard count > 0 else { return nil }
+        let result = head
+        head = head?.next
+        count -= 1
+        
+        if count == 0 {
+            tail = nil
+        }
+        
+        return result
     }
 }
 
@@ -177,5 +186,18 @@ final class SinglyLinkedListTests: XCTestCase {
         let result = sut.shift()
         
         XCTAssertNil(result)
+    }
+    
+    func test_shift_removesHeadAndTailOnAListWithOneElement() {
+        let sut = SinglyLinkedList<Int>()
+        let node = Node(value: 1)
+        sut.push(node)
+        
+        let removedElement = sut.shift()
+        
+        XCTAssertEqual(removedElement, node)
+        XCTAssertNil(sut.head)
+        XCTAssertNil(sut.tail)
+        XCTAssertEqual(sut.count, 0)
     }
 }
