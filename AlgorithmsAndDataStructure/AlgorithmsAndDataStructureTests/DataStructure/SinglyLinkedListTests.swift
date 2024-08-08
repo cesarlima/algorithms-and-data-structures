@@ -59,6 +59,7 @@ final class SinglyLinkedList<T: Equatable> {
             current = current?.next
         }
         
+        previus?.setNext(nil)
         tail = previus
         count -= 1
         
@@ -66,7 +67,7 @@ final class SinglyLinkedList<T: Equatable> {
             head = nil
             tail = nil
         }
-        
+
         return current
     }
 }
@@ -145,6 +146,24 @@ final class SinglyLinkedListTests: XCTestCase {
         XCTAssertEqual(deletedElement, node3)
         XCTAssertEqual(sut.head, node)
         XCTAssertEqual(sut.tail, node2)
+        XCTAssertNil(sut.tail?.next)
         XCTAssertEqual(sut.count, 2)
+    }
+    
+    func test_pop_removesLastElementAndUpdatesHeadAndTailOnAListWithTwoElements() {
+        let sut = SinglyLinkedList<Int>()
+        let node = Node(value: 1)
+        let node2 = Node(value: 2)
+        sut.push(node)
+        sut.push(node2)
+ 
+        let deletedElement = sut.pop()
+        
+        XCTAssertEqual(deletedElement, node2)
+        XCTAssertEqual(sut.head, node)
+        XCTAssertEqual(sut.tail, node)
+        XCTAssertNil(sut.head?.next)
+        XCTAssertNil(sut.tail?.next)
+        XCTAssertEqual(sut.count, 1)
     }
 }
