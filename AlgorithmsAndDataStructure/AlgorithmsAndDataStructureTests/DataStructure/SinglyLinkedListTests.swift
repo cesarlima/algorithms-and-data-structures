@@ -51,16 +51,23 @@ final class SinglyLinkedList<T: Equatable> {
     
     func pop() -> Node<T>? {
         guard count > 0 else { return nil }
+        var current = head
+        var previus = current
         
-        if head?.next == nil {
-            let result = head
-            head = nil
-            tail = nil
-            count -= 1
-            return result
+        while current?.next != nil {
+            previus = current
+            current = current?.next
         }
         
-        return nil
+        tail = previus
+        count -= 1
+        
+        if count == 0 {
+            head = nil
+            tail = nil
+        }
+        
+        return current
     }
 }
 
@@ -122,5 +129,22 @@ final class SinglyLinkedListTests: XCTestCase {
         XCTAssertNil(sut.head)
         XCTAssertNil(sut.tail)
         XCTAssertEqual(sut.count, 0)
+    }
+    
+    func test_pop_removesLastElementAndUpdatesTail() {
+        let sut = SinglyLinkedList<Int>()
+        let node = Node(value: 1)
+        let node2 = Node(value: 2)
+        let node3 = Node(value: 3)
+        sut.push(node)
+        sut.push(node2)
+        sut.push(node3)
+ 
+        let deletedElement = sut.pop()
+        
+        XCTAssertEqual(deletedElement, node3)
+        XCTAssertEqual(sut.head, node)
+        XCTAssertEqual(sut.tail, node2)
+        XCTAssertEqual(sut.count, 2)
     }
 }
