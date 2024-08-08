@@ -216,4 +216,22 @@ final class SinglyLinkedListTests: XCTestCase {
         XCTAssertNil(sut.tail?.next)
         XCTAssertEqual(sut.count, 1)
     }
+    
+    func test_shift_removesFirstElementAndUpdatesHead() {
+        let sut = SinglyLinkedList<Int>()
+        let node = Node(value: 1)
+        let node2 = Node(value: 2)
+        let node3 = Node(value: 3)
+        sut.push(node)
+        sut.push(node2)
+        sut.push(node3)
+        
+        let removedElement = sut.shift()
+        
+        XCTAssertEqual(removedElement, node)
+        XCTAssertEqual(sut.head, node2)
+        XCTAssertEqual(sut.tail, node3)
+        XCTAssertNil(sut.tail?.next)
+        XCTAssertEqual(sut.count, 2)
+    }
 }
