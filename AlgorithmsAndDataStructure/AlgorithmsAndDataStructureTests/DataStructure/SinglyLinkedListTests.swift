@@ -26,7 +26,7 @@ final class Node<T: Equatable>: Equatable {
     }
 }
 
-final class SinglyLinkedList<T: Equatable> {
+final class SinglyLinkedList<T: Equatable>: Equatable {
     private(set) var head: Node<T>?
     private(set) var tail: Node<T>?
     private(set) var count: Int
@@ -84,10 +84,25 @@ final class SinglyLinkedList<T: Equatable> {
         return result
     }
     
-    func unshift(_ node: Node<T>) {
-        head = node
-        tail = node
+    @discardableResult
+    func unshift(_ node: Node<T>) -> SinglyLinkedList<T> {
+        if count == 0 {
+            head = node
+            tail = node
+        } else {
+            node.setNext(head)
+            head = node
+        }
+        
         count += 1
+        
+        return self
+    }
+    
+    static func == (lhs: SinglyLinkedList<T>, rhs: SinglyLinkedList<T>) -> Bool {
+        return lhs.head == rhs.head
+        && lhs.tail == rhs.tail
+        && lhs.count == rhs.count
     }
 }
 
@@ -251,5 +266,20 @@ final class SinglyLinkedListTests: XCTestCase {
         XCTAssertEqual(sut.tail, node)
         XCTAssertNil(sut.head?.next)
         XCTAssertEqual(sut.count, 1)
+    }
+    
+    func test_unshift_setsElementAsNewHeadAndIncrementsCountInNonEmptyList() {
+        let sut = SinglyLinkedList<Int>()
+        let node = Node(value: 1)
+        let node2 = Node(value: 2)
+        
+        sut.unshift(node)
+        let result = sut.unshift(node2)
+        
+        XCTAssertEqual(sut.head, node2)
+        XCTAssertEqual(sut.tail, node)
+        XCTAssertEqual(sut.head?.next, node)
+        XCTAssertEqual(sut.count, 2)
+        XCTAssertEqual(result, sut)
     }
 }
