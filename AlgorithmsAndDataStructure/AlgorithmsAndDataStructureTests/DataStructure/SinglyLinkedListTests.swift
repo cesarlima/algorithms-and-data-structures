@@ -83,6 +83,12 @@ final class SinglyLinkedList<T: Equatable> {
         
         return result
     }
+    
+    func unshift(_ node: Node<T>) {
+        head = node
+        tail = node
+        count += 1
+    }
 }
 
 final class SinglyLinkedListTests: XCTestCase {
@@ -233,5 +239,17 @@ final class SinglyLinkedListTests: XCTestCase {
         XCTAssertEqual(sut.tail, node3)
         XCTAssertNil(sut.tail?.next)
         XCTAssertEqual(sut.count, 2)
+    }
+    
+    func test_unshift_setsElementAsHeadTailAndIncrementsCountInEmptyList() {
+        let sut = SinglyLinkedList<Int>()
+        let node = Node(value: 1)
+        
+        sut.unshift(node)
+        
+        XCTAssertEqual(sut.head, node)
+        XCTAssertEqual(sut.tail, node)
+        XCTAssertNil(sut.head?.next)
+        XCTAssertEqual(sut.count, 1)
     }
 }
