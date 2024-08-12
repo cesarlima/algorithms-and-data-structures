@@ -101,7 +101,21 @@ final class SinglyLinkedList<T: Equatable>: Equatable {
     }
     
     func get(_ index: Int) -> Node<T>? {
-        nil
+        guard count > 0,
+              index > -1,
+              index < count else {
+            return nil
+        }
+        
+        var result = head
+        var count = 0
+        
+        while count < index {
+            result = result?.next
+            count += 1
+        }
+        
+        return result
     }
     
     static func == (lhs: SinglyLinkedList<T>, rhs: SinglyLinkedList<T>) -> Bool {
@@ -306,5 +320,19 @@ final class SinglyLinkedListTests: XCTestCase {
         let result = sut.get(3)
         
         XCTAssertNil(result)
+    }
+    
+    func test_get_returnsNodeForReceivedIndex() {
+        let sut = SinglyLinkedList<Int>()
+        let node = Node(value: 1)
+        let node2 = Node(value: 2)
+        let node3 = Node(value: 3)
+        sut.push(node)
+        sut.push(node2)
+        sut.push(node3)
+        
+        XCTAssertEqual(sut.get(2)?.value, node3.value)
+        XCTAssertEqual(sut.get(0)?.value, node.value)
+        XCTAssertEqual(sut.get(1)?.value, node2.value)
     }
 }
