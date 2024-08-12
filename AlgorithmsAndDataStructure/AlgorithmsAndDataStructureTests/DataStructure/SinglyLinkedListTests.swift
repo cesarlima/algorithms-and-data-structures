@@ -24,6 +24,10 @@ final class Node<T: Equatable>: Equatable {
     func setNext(_ element: Node<T>?) {
         next = element
     }
+    
+    func setValue(_ value: T) {
+        self.value = value
+    }
 }
 
 final class SinglyLinkedList<T: Equatable>: Equatable {
@@ -119,7 +123,12 @@ final class SinglyLinkedList<T: Equatable>: Equatable {
     }
     
     func set(_ value: T, at index: Int) -> Bool {
-        false
+        guard var node = get(index) else {
+            return false
+        }
+        
+        node.setValue(value)
+        return true
     }
     
     static func == (lhs: SinglyLinkedList<T>, rhs: SinglyLinkedList<T>) -> Bool {
@@ -356,5 +365,20 @@ final class SinglyLinkedListTests: XCTestCase {
         let result = sut.set(100, at: 4)
         
         XCTAssertFalse(result)
+    }
+    
+    func test_set_updatesNodeValueAtReceivedIndexAndReturnsTrue() {
+        let sut = SinglyLinkedList<Int>()
+        let node = Node(value: 1)
+        let node2 = Node(value: 2)
+        let node3 = Node(value: 3)
+        sut.push(node)
+        sut.push(node2)
+        sut.push(node3)
+        
+        XCTAssertTrue(sut.set(30, at: 1))
+        XCTAssertEqual(sut.get(1)?.value, 30)
+        XCTAssertTrue(sut.set(9, at: 2))
+        XCTAssertEqual(sut.get(2)?.value, 9)
     }
 }
