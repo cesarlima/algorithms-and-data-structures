@@ -297,4 +297,14 @@ final class SinglyLinkedListTests: XCTestCase {
         
         XCTAssertNil(result)
     }
+    
+    func test_get_returnsNilOnAnInvalidIndex() {
+        let sut = SinglyLinkedList<Int>()
+        let node = Node(value: 1)
+        sut.unshift(node.value)
+       
+        let result = sut.get(3)
+        
+        XCTAssertNil(result)
+    }
 }
