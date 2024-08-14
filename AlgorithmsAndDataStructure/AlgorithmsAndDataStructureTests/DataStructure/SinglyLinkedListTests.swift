@@ -161,6 +161,8 @@ final class SinglyLinkedList<T: Equatable>: Equatable {
         
         if index == 0 {
             return shift()
+        } else if (index + 1) == count {
+            return pop()
         }
         
         return nil
@@ -490,6 +492,20 @@ final class SinglyLinkedListTests: XCTestCase {
         
         XCTAssertEqual(node.value, result?.value)
         XCTAssertEqual(sut.head?.value, node2.value)
+        XCTAssertEqual(sut.count, 1)
+    }
+    
+    func test_remove_removesNodeFromEndAndDecrementsCount() {
+        let sut = SinglyLinkedList<Int>()
+        let node = Node(value: 1)
+        let node2 = Node(value: 2)
+        sut.push(node)
+        sut.push(node2)
+        
+        let result = sut.remove(at: 1)
+        
+        XCTAssertEqual(node2.value, result?.value)
+        XCTAssertEqual(sut.head?.value, node.value)
         XCTAssertEqual(sut.count, 1)
     }
 }
