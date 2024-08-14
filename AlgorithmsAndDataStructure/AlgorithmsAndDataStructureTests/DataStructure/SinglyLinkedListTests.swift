@@ -123,7 +123,7 @@ final class SinglyLinkedList<T: Equatable>: Equatable {
     }
     
     func set(_ value: T, at index: Int) -> Bool {
-        guard var node = get(index) else {
+        guard let node = get(index) else {
             return false
         }
         
