@@ -153,6 +153,10 @@ final class SinglyLinkedList<T: Equatable>: Equatable {
         return true
     }
     
+    func remove(at index: Int) {
+        
+    }
+    
     static func == (lhs: SinglyLinkedList<T>, rhs: SinglyLinkedList<T>) -> Bool {
         return lhs.head == rhs.head
         && lhs.tail == rhs.tail
@@ -453,5 +457,16 @@ final class SinglyLinkedListTests: XCTestCase {
         
         XCTAssertEqual(sut.head?.next?.value, valueToInsert)
         XCTAssertEqual(sut.count, 4)
+    }
+    
+    func test_remove_doesNothingOnInvalidIndex() {
+        let sut = SinglyLinkedList<Int>()
+        
+        sut.remove(at: 0)
+        XCTAssertEqual(sut.count, 0)
+        
+        sut.unshift(1)
+        sut.remove(at: 2)
+        XCTAssertEqual(sut.count, 1)
     }
 }
