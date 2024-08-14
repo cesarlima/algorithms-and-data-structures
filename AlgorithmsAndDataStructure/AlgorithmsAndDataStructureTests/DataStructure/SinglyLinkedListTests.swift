@@ -131,6 +131,10 @@ final class SinglyLinkedList<T: Equatable>: Equatable {
         return true
     }
     
+    func insert(_ value: T, at index: Int) -> Bool {
+        false
+    }
+    
     static func == (lhs: SinglyLinkedList<T>, rhs: SinglyLinkedList<T>) -> Bool {
         return lhs.head == rhs.head
         && lhs.tail == rhs.tail
@@ -380,5 +384,11 @@ final class SinglyLinkedListTests: XCTestCase {
         XCTAssertEqual(sut.get(1)?.value, 30)
         XCTAssertTrue(sut.set(9, at: 2))
         XCTAssertEqual(sut.get(2)?.value, 9)
+    }
+    
+    func test_insert_returnsFalseOnInvalidIndex() {
+        let sut = SinglyLinkedList<Int>()
+        
+        XCTAssertFalse(sut.insert(5, at: -1))
     }
 }
