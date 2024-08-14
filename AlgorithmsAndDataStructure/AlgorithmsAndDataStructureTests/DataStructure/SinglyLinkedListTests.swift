@@ -142,6 +142,10 @@ final class SinglyLinkedList<T: Equatable>: Equatable {
             unshift(value)
         }
         
+        if index == count {
+            push(Node(value: value))
+        }
+        
         return true
     }
     
@@ -414,5 +418,19 @@ final class SinglyLinkedListTests: XCTestCase {
         XCTAssertEqual(sut.head?.next?.value, node.value)
         XCTAssertEqual(sut.tail?.value, node.value)
         XCTAssertEqual(sut.count, 2)
+    }
+    
+    func test_insert_insertsAtTheEnd() {
+        let sut = SinglyLinkedList<Int>()
+        let node = Node(value: 1)
+        let node2 = Node(value: 2)
+        sut.push(node)
+        sut.push(node2)
+        let valueToInsert = 9
+        
+        sut.insert(valueToInsert, at: 2)
+        
+        XCTAssertEqual(sut.head?.value, node.value)
+        XCTAssertEqual(sut.tail?.value, valueToInsert)
     }
 }
