@@ -165,7 +165,11 @@ final class SinglyLinkedList<T: Equatable>: Equatable {
             return pop()
         }
         
-        return nil
+        let previusNode = get(index - 1)
+        let toRemove = previusNode?.next
+        previusNode?.setNext(toRemove?.next)
+        count -= 1
+        return toRemove
     }
     
     static func == (lhs: SinglyLinkedList<T>, rhs: SinglyLinkedList<T>) -> Bool {
@@ -507,5 +511,22 @@ final class SinglyLinkedListTests: XCTestCase {
         XCTAssertEqual(node2.value, result?.value)
         XCTAssertEqual(sut.head?.value, node.value)
         XCTAssertEqual(sut.count, 1)
+    }
+    
+    func test_remove_removesNodeBetweenNodes() {
+        let sut = SinglyLinkedList<Int>()
+        let node = Node(value: 1)
+        let node2 = Node(value: 2)
+        let node3 = Node(value: 3)
+        sut.push(node)
+        sut.push(node2)
+        sut.push(node3)
+        
+        let result = sut.remove(at: 1)
+        
+        XCTAssertEqual(node2.value, result?.value)
+        XCTAssertEqual(sut.head?.value, node.value)
+        XCTAssertEqual(sut.tail?.value, node3.value)
+        XCTAssertEqual(sut.count, 2)
     }
 }
