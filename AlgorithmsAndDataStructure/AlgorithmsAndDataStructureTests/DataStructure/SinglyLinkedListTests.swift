@@ -172,6 +172,21 @@ final class SinglyLinkedList<T: Equatable>: Equatable {
         return toRemove
     }
     
+    func reverse() {
+
+        func swap(_ newNext: Node<T>?) {
+            guard newNext?.next != nil else { return }
+            swap(newNext?.next)
+            newNext?.next?.setNext(newNext)
+        }
+        
+        swap(head)
+        let newHead = tail
+        tail = head
+        head = newHead
+        tail?.setNext(nil)
+    }
+    
     static func == (lhs: SinglyLinkedList<T>, rhs: SinglyLinkedList<T>) -> Bool {
         return lhs.head == rhs.head
         && lhs.tail == rhs.tail
@@ -528,5 +543,27 @@ final class SinglyLinkedListTests: XCTestCase {
         XCTAssertEqual(sut.head?.value, node.value)
         XCTAssertEqual(sut.tail?.value, node3.value)
         XCTAssertEqual(sut.count, 2)
+    }
+    
+    func test_reverse_reversesTheList() {
+        let sut = SinglyLinkedList<Int>()
+        let nodes = [
+            Node(value: 13),
+            Node(value: 27),
+            Node(value: 32),
+            Node(value: 71)
+        ]
+        nodes.forEach { sut.push($0) }
+        
+        sut.reverse()
+        
+        for (index, expectedNode) in nodes.reversed().enumerated() {
+            XCTAssertEqual(expectedNode.value, sut.get(index)?.value)
+            XCTAssertEqual(expectedNode.next?.value, sut.get(index)?.next?.value)
+        }
+        XCTAssertEqual(sut.head?.value, nodes[3].value)
+        XCTAssertEqual(sut.tail?.value, nodes[0].value)
+        XCTAssertNil(sut.tail?.next)
+        
     }
 }
