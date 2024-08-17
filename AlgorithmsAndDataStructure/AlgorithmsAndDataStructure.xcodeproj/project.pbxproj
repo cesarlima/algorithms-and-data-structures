@@ -11,6 +11,7 @@
 		8EA0C1C02C622BB10054737E /* SinglyLinkedListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA0C1BF2C622BB10054737E /* SinglyLinkedListTests.swift */; };
 		8EA0C1C32C713A810054737E /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA0C1C22C713A810054737E /* Node.swift */; };
 		8EA0C1C52C713AAB0054737E /* SinglyLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA0C1C42C713AAB0054737E /* SinglyLinkedList.swift */; };
+		8EA0C1C72C714D490054737E /* DoublyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA0C1C62C714D490054737E /* DoublyNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		8EA0C1BF2C622BB10054737E /* SinglyLinkedListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglyLinkedListTests.swift; sourceTree = "<group>"; };
 		8EA0C1C22C713A810054737E /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		8EA0C1C42C713AAB0054737E /* SinglyLinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglyLinkedList.swift; sourceTree = "<group>"; };
+		8EA0C1C62C714D490054737E /* DoublyNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoublyNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				8EA0C1C22C713A810054737E /* Node.swift */,
 				8EA0C1C42C713AAB0054737E /* SinglyLinkedList.swift */,
+				8EA0C1C62C714D490054737E /* DoublyNode.swift */,
 			);
 			path = DataStructures;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			files = (
 				8EA0C1C52C713AAB0054737E /* SinglyLinkedList.swift in Sources */,
 				8EA0C1C32C713A810054737E /* Node.swift in Sources */,
+				8EA0C1C72C714D490054737E /* DoublyNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
