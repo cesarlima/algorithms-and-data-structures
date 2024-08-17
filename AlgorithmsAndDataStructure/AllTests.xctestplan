@@ -1,0 +1,32 @@
+{
+  "configurations" : [
+    {
+      "id" : "D328C9CF-AEBA-456C-B415-F554FD4C0D37",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:AlgorithmsAndDataStructure.xcodeproj",
+          "identifier" : "8EA0C1A52C622A7C0054737E",
+          "name" : "AlgorithmsAndDataStructure"
+        }
+      ]
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:AlgorithmsAndDataStructure.xcodeproj",
+        "identifier" : "8EA0C1AD2C622A7C0054737E",
+        "name" : "AlgorithmsAndDataStructureTests"
+      }
+    }
+  ],
+  "version" : 1
+}
