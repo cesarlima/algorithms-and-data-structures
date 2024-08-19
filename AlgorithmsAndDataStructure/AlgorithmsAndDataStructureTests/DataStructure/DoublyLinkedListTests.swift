@@ -46,4 +46,14 @@ final class DoublyLinkedListTests: XCTestCase {
         XCTAssertNil(sut.tail?.next)
         XCTAssertEqual(sut.count, 3)
     }
+    
+    func test_pop_hasNoSideEffectsOnEmptyList() {
+        let sut = DoublyLinkedList<Int>()
+        
+        sut.pop()
+        
+        XCTAssertNil(sut.head)
+        XCTAssertNil(sut.tail)
+        XCTAssertEqual(sut.count, 0)
+    }
 }

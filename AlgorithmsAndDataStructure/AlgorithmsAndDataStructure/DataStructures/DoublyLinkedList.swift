@@ -25,4 +25,8 @@ final class DoublyLinkedList<T: Equatable> {
         tail = node
         count += 1
     }
+    
+    func pop() {
+        
+    }
 }
