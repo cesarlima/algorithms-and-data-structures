@@ -33,6 +33,12 @@ final class DoublyLinkedList<T: Equatable> {
         tail = result?.prev
         tail?.setNext(nil)
         count -= 1
+        result?.setPrevious(nil)
+        
+        if count == 0 {
+            head = nil
+        }
+        
         return result
     }
 }
