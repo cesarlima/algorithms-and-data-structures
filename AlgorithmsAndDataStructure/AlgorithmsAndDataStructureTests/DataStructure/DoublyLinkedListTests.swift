@@ -28,4 +28,22 @@ final class DoublyLinkedListTests: XCTestCase {
         XCTAssertEqual(sut.tail?.value, value)
         XCTAssertEqual(sut.count, 1)
     }
+    
+    func test_push_addsNodeToEndOfNonEmptyListAndIncrementsCount() {
+        let sut = DoublyLinkedList<Int>()
+        let expectedFirstValue = 1
+        let expectedSecondValue = 2
+        let expectedThirdValue = 3
+        
+        sut.push(expectedFirstValue)
+        sut.push(expectedSecondValue)
+        sut.push(expectedThirdValue)
+        
+        XCTAssertEqual(sut.head?.value, expectedFirstValue)
+        XCTAssertEqual(sut.head?.next?.value, expectedSecondValue)
+        XCTAssertEqual(sut.tail?.value, expectedThirdValue)
+        XCTAssertEqual(sut.tail?.prev?.value, expectedSecondValue)
+        XCTAssertNil(sut.tail?.next)
+        XCTAssertEqual(sut.count, 3)
+    }
 }

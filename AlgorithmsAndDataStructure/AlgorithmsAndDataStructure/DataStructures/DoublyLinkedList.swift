@@ -14,7 +14,14 @@ final class DoublyLinkedList<T: Equatable> {
     
     func push(_ value: T) {
         let node = DoublyNode(value: value)
-        head = node
+        
+        if count == 0 {
+            head = node
+        } else {
+            tail?.setNext(node)
+            node.setPrevious(tail)
+        }
+        
         tail = node
         count += 1
     }
