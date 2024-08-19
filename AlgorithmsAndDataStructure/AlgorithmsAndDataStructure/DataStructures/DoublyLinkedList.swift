@@ -26,7 +26,13 @@ final class DoublyLinkedList<T: Equatable> {
         count += 1
     }
     
-    func pop() {
-        
+    @discardableResult
+    func pop() -> DoublyNode<T>? {
+        guard count > 0 else { return nil }
+        let result = tail
+        tail = result?.prev
+        tail?.setNext(nil)
+        count -= 1
+        return result
     }
 }
