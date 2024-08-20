@@ -91,4 +91,14 @@ final class DoublyLinkedListTests: XCTestCase {
         XCTAssertEqual(removedNode?.value, expectedFirstValue)
         XCTAssertEqual(sut.count, 0)
     }
+    
+    func test_shift_hasNoSideEffectsOnEmptyList() {
+        let sut = DoublyLinkedList<Int>()
+        
+        sut.shift()
+        
+        XCTAssertNil(sut.head)
+        XCTAssertNil(sut.tail)
+        XCTAssertEqual(sut.count, 0)
+    }
 }

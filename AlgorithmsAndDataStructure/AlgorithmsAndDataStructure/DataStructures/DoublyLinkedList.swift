@@ -41,4 +41,8 @@ final class DoublyLinkedList<T: Equatable> {
         
         return result
     }
+    
+    func shift() {
+        
+    }
 }
