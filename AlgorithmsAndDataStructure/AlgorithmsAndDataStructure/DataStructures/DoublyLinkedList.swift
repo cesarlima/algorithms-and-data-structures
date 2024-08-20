@@ -47,6 +47,7 @@ final class DoublyLinkedList<T: Equatable> {
         guard count > 0 else { return nil }
         let result = head
         head = result?.next
+        head?.setPrevious(nil)
         result?.setNext(nil)
         count -= 1
         
