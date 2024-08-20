@@ -57,4 +57,11 @@ final class DoublyLinkedList<T: Equatable> {
         
         return result
     }
+    
+    func unshift(_ value: T) {
+        let newNode = DoublyNode(value: value)
+        head = newNode
+        tail = newNode
+        count += 1
+    }
 }

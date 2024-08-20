@@ -158,4 +158,17 @@ final class DoublyLinkedListTests: XCTestCase {
         XCTAssertNil(removedNode?.prev)
         XCTAssertNil(removedNode?.next)
     }
+    
+    func test_unshift_addsNodeAsHeadAndTailAndIncrementsCountOnEmptyList() {
+        let sut = DoublyLinkedList<Int>()
+        let value = 1
+        
+        sut.unshift(value)
+        
+        XCTAssertEqual(sut.head?.value, value)
+        XCTAssertEqual(sut.tail?.value, value)
+        XCTAssertNil(sut.head?.next)
+        XCTAssertNil(sut.tail?.next)
+        XCTAssertEqual(sut.count, 1)
+    }
 }
