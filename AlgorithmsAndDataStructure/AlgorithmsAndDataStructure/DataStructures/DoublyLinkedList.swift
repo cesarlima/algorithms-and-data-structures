@@ -42,7 +42,13 @@ final class DoublyLinkedList<T: Equatable> {
         return result
     }
     
-    func shift() {
-        
+    @discardableResult
+    func shift() -> DoublyNode<T>? {
+        guard count > 0 else { return nil }
+        let result = head
+        head = nil
+        tail = nil
+        count -= 1
+        return result
     }
 }
