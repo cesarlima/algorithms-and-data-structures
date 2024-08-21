@@ -71,4 +71,8 @@ final class DoublyLinkedList<T: Equatable> {
         head = newNode
         count += 1
     }
+    
+    func get(at index: Int) -> DoublyNode<T>? {
+        nil
+    }
 }

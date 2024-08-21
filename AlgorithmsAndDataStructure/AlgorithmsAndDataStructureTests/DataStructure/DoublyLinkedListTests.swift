@@ -190,4 +190,16 @@ final class DoublyLinkedListTests: XCTestCase {
         XCTAssertNil(sut.tail?.next)
         XCTAssertEqual(sut.count, 3)
     }
+    
+    func test_get_returnsNilAndHasNoSideEffectsOnEmptyList() {
+        let sut = DoublyLinkedList<Int>()
+       
+        let result = sut.get(at: 0)
+        
+        XCTAssertNil(sut.head)
+        XCTAssertNil(sut.tail)
+        XCTAssertNil(result)
+        XCTAssertEqual(sut.count, 0)
+    }
+    
 }
