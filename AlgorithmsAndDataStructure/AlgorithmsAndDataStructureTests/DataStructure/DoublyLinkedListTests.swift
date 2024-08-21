@@ -202,4 +202,12 @@ final class DoublyLinkedListTests: XCTestCase {
         XCTAssertEqual(sut.count, 0)
     }
     
+    func test_get_returnsNilForInvalidIndex() {
+        let sut = DoublyLinkedList<Int>()
+        sut.push(1)
+        sut.push(2)
+        
+        XCTAssertNil(sut.get(at: 3))
+        XCTAssertNil(sut.get(at: -1))
+    }
 }
