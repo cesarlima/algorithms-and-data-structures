@@ -210,4 +210,17 @@ final class DoublyLinkedListTests: XCTestCase {
         XCTAssertNil(sut.get(at: 3))
         XCTAssertNil(sut.get(at: -1))
     }
+    
+    func test_get_returnsNodeForValidIndex() {
+        let sut = DoublyLinkedList<Int>()
+        let nodesQuantity = 100
+        for num in 1...nodesQuantity {
+            sut.push(num)
+        }
+        
+        XCTAssertEqual(sut.get(at: 90)?.value, 91)
+        XCTAssertEqual(sut.get(at: 3)?.value, 4)
+        XCTAssertEqual(sut.get(at: 50)?.value, 51)
+        XCTAssertEqual(sut.count, nodesQuantity)
+    }
 }

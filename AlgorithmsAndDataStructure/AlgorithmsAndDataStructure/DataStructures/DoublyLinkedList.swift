@@ -73,6 +73,26 @@ final class DoublyLinkedList<T: Equatable> {
     }
     
     func get(at index: Int) -> DoublyNode<T>? {
-        nil
+        guard index > -1,
+              index < count else {
+            return nil
+        }
+        var result: DoublyNode<T>?
+        
+        if index < (count / 2) {
+            result = head
+            
+            for _ in 0..<index {
+                result = result?.next
+            }
+        } else {
+            result = tail
+            
+            for _ in (index..<(count - 1)).reversed() {
+                result = result?.prev
+            }
+        }
+        
+        return result
     }
 }
