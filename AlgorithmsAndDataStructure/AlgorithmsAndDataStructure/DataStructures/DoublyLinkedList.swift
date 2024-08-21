@@ -97,6 +97,11 @@ final class DoublyLinkedList<T: Equatable> {
     }
     
     func set(_ value: T, at index: Int) -> Bool {
-        false
+        guard let node = get(at: index) else {
+            return false
+        }
+        
+        node.setValue(value)
+        return true
     }
 }

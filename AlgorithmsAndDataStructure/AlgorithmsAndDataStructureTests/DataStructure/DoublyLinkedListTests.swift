@@ -238,4 +238,17 @@ final class DoublyLinkedListTests: XCTestCase {
         XCTAssertFalse(sut.set(5, at: -1))
         XCTAssertFalse(sut.set(3, at: 3))
     }
+    
+    func test_set_returnsTrueAndChangesValueOnValidIndex() {
+        let sut = DoublyLinkedList<Int>()
+        let valueToSet = 5
+        let indexToSet = 1
+        sut.push(1)
+        sut.push(2)
+        sut.push(3)
+        
+        XCTAssertTrue(sut.set(valueToSet, at: indexToSet))
+        XCTAssertEqual(sut.get(at: indexToSet)?.value, valueToSet)
+        XCTAssertEqual(sut.count, 3)
+    }
 }

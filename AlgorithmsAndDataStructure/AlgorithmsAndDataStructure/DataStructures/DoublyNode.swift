@@ -23,4 +23,8 @@ final class DoublyNode<T: Equatable> {
     func setPrevious(_ prev: DoublyNode<T>?) {
         self.prev = prev
     }
+    
+    func setValue(_ value: T) {
+        self.value = value
+    }
 }
