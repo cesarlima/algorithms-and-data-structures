@@ -223,4 +223,10 @@ final class DoublyLinkedListTests: XCTestCase {
         XCTAssertEqual(sut.get(at: 50)?.value, 51)
         XCTAssertEqual(sut.count, nodesQuantity)
     }
+    
+    func test_set_returnsFalseOnEmptyList() {
+        let sut = DoublyLinkedList<Int>()
+        
+        XCTAssertFalse(sut.set(5, at: 0))
+    }
 }

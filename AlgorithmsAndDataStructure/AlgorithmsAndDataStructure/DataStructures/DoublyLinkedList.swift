@@ -95,4 +95,8 @@ final class DoublyLinkedList<T: Equatable> {
         
         return result
     }
+    
+    func set(_ value: T, at index: Int) -> Bool {
+        false
+    }
 }
