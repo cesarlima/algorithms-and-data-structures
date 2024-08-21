@@ -60,8 +60,15 @@ final class DoublyLinkedList<T: Equatable> {
     
     func unshift(_ value: T) {
         let newNode = DoublyNode(value: value)
+        
+        if count == 0 {
+            tail = newNode
+        } else {
+            head?.setPrevious(newNode)
+            newNode.setNext(head)
+        }
+        
         head = newNode
-        tail = newNode
         count += 1
     }
 }

@@ -171,4 +171,23 @@ final class DoublyLinkedListTests: XCTestCase {
         XCTAssertNil(sut.tail?.next)
         XCTAssertEqual(sut.count, 1)
     }
+    
+    func test_unshift_addsNodeToBeginningOfNonEmptyList() {
+        let sut = DoublyLinkedList<Int>()
+        let expectedFirstValue = 5
+        let expectedSecondValue = 22
+        let expectedThirdValue = 30
+        sut.push(expectedSecondValue)
+        sut.push(expectedThirdValue)
+        
+        sut.unshift(expectedFirstValue)
+        
+        XCTAssertEqual(sut.head?.value, expectedFirstValue)
+        XCTAssertEqual(sut.head?.next?.value, expectedSecondValue)
+        XCTAssertNil(sut.head?.prev)
+        XCTAssertEqual(sut.tail?.value, expectedThirdValue)
+        XCTAssertEqual(sut.tail?.prev?.prev?.value, expectedFirstValue)
+        XCTAssertNil(sut.tail?.next)
+        XCTAssertEqual(sut.count, 3)
+    }
 }
