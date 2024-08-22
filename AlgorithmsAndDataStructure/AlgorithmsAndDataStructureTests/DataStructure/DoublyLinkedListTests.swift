@@ -317,4 +317,11 @@ final class DoublyLinkedListTests: XCTestCase {
         XCTAssertNil(sut.tail?.next)
         XCTAssertEqual(sut.count, 3)
     }
+    
+    func test_remove_returnsNilOnInvalidIndexAndHasNoSideEffects() {
+        let sut = DoublyLinkedList<Int>()
+        
+        XCTAssertNil(sut.remove(at: -1))
+        XCTAssertNil(sut.remove(at: 1))
+    }
 }
