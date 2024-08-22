@@ -111,7 +111,11 @@ final class DoublyLinkedList<T: Equatable> {
             return false
         }
         
-        unshift(value)
+        if index == 0 {
+            unshift(value)
+        } else {
+            push(value)
+        }
         
         return true
     }
