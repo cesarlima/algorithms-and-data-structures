@@ -268,6 +268,7 @@ final class DoublyLinkedListTests: XCTestCase {
         
         let result = sut.insert(expectedFirstValue, at: 0)
         
+        XCTAssertTrue(result)
         XCTAssertEqual(sut.head?.value, expectedFirstValue)
         XCTAssertEqual(sut.head?.next?.value, expectedSecondValue)
         XCTAssertNil(sut.head?.prev)
@@ -287,6 +288,7 @@ final class DoublyLinkedListTests: XCTestCase {
         
         let result = sut.insert(expectedThirdValue, at: 2)
         
+        XCTAssertTrue(result)
         XCTAssertEqual(sut.head?.value, expectedFirstValue)
         XCTAssertEqual(sut.head?.next?.value, expectedSecondValue)
         XCTAssertNil(sut.head?.prev)
@@ -306,6 +308,7 @@ final class DoublyLinkedListTests: XCTestCase {
         
         let result = sut.insert(expectedSecondValue, at: 1)
         
+        XCTAssertTrue(result)
         XCTAssertEqual(sut.head?.value, expectedFirstValue)
         XCTAssertEqual(sut.head?.next?.value, expectedSecondValue)
         XCTAssertNil(sut.head?.prev)
