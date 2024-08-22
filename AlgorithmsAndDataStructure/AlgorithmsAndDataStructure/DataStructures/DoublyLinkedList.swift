@@ -113,8 +113,16 @@ final class DoublyLinkedList<T: Equatable> {
         
         if index == 0 {
             unshift(value)
-        } else {
+        } else if index == count {
             push(value)
+        } else {
+            let newNode = DoublyNode(value: value)
+            let current = get(at: index)
+            newNode.setPrevious(current?.prev)
+            newNode.setNext(current)
+            current?.prev?.setNext(newNode)
+            current?.setPrevious(newNode)
+            count += 1
         }
         
         return true
