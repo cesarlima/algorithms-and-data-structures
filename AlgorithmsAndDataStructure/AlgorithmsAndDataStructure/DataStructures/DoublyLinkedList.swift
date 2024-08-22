@@ -104,4 +104,8 @@ final class DoublyLinkedList<T: Equatable> {
         node.setValue(value)
         return true
     }
+    
+    func insert(_ value: T, at index: Int) -> Bool {
+        false
+    }
 }

@@ -251,4 +251,12 @@ final class DoublyLinkedListTests: XCTestCase {
         XCTAssertEqual(sut.get(at: indexToSet)?.value, valueToSet)
         XCTAssertEqual(sut.count, 3)
     }
+    
+    func test_insert_returnsFalseAndHasNoSideEffectsOnInvalidIndex() {
+        let sut = DoublyLinkedList<Int>()
+        
+        XCTAssertFalse(sut.insert(3, at: -1))
+        XCTAssertFalse(sut.insert(3, at: 1))
+        XCTAssertEqual(sut.count, 0)
+    }
 }
