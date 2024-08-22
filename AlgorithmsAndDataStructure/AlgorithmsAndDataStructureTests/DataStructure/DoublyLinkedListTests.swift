@@ -323,5 +323,6 @@ final class DoublyLinkedListTests: XCTestCase {
         
         XCTAssertNil(sut.remove(at: -1))
         XCTAssertNil(sut.remove(at: 1))
+        XCTAssertEqual(sut.count, 0)
     }
 }
