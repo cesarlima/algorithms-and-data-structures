@@ -259,4 +259,21 @@ final class DoublyLinkedListTests: XCTestCase {
         XCTAssertFalse(sut.insert(3, at: 1))
         XCTAssertEqual(sut.count, 0)
     }
+    
+    func test_insert_insertsAtBeginningIncrementsCountAndReturnsTrue() {
+        let sut = DoublyLinkedList<Int>()
+        let expectedFirstValue = 5
+        let expectedSecondValue = 10
+        sut.push(expectedSecondValue)
+        
+        let result = sut.insert(expectedFirstValue, at: 0)
+        
+        XCTAssertEqual(sut.head?.value, expectedFirstValue)
+        XCTAssertEqual(sut.head?.next?.value, expectedSecondValue)
+        XCTAssertNil(sut.head?.prev)
+        XCTAssertEqual(sut.tail?.value, expectedSecondValue)
+        XCTAssertEqual(sut.tail?.prev?.value, expectedFirstValue)
+        XCTAssertNil(sut.tail?.next)
+        XCTAssertEqual(sut.count, 2)
+    }
 }

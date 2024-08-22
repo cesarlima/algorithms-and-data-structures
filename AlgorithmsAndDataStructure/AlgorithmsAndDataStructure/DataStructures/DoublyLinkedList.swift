@@ -106,6 +106,13 @@ final class DoublyLinkedList<T: Equatable> {
     }
     
     func insert(_ value: T, at index: Int) -> Bool {
-        false
+        guard index > -1,
+              index <= count else {
+            return false
+        }
+        
+        unshift(value)
+        
+        return true
     }
 }
