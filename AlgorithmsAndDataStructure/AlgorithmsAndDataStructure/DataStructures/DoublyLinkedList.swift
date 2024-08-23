@@ -129,6 +129,15 @@ final class DoublyLinkedList<T: Equatable> {
     }
     
     func remove(at index: Int) -> DoublyNode<T>? {
-        nil
+        guard index > -1,
+              index < count else {
+            return nil
+        }
+        
+        if index == 0 {
+            return shift()
+        }
+        
+        return nil
     }
 }
