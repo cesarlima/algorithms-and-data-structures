@@ -136,6 +136,8 @@ final class DoublyLinkedList<T: Equatable> {
         
         if index == 0 {
             return shift()
+        } else if index + 1 == count {
+            return pop()
         }
         
         return nil
