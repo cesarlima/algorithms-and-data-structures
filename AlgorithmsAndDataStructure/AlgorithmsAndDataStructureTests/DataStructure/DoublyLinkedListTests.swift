@@ -394,4 +394,25 @@ final class DoublyLinkedListTests: XCTestCase {
         XCTAssertNil(sut.tail?.next)
         XCTAssertEqual(sut.count, 2)
     }
+    
+    func test_remove_headAndTailBecomeTheSameNodeOnAListWithTwoNodes() {
+        let sut = DoublyLinkedList<Int>()
+        let expectedFirstValue = 5
+        let expectedSecondValue = 10
+        sut.push(expectedFirstValue)
+        sut.push(expectedSecondValue)
+        
+        let resutl = sut.remove(at: 1)
+        
+        XCTAssertEqual(resutl?.value, expectedSecondValue)
+        XCTAssertNil(resutl?.prev)
+        XCTAssertNil(resutl?.next)
+        XCTAssertEqual(sut.head?.value, expectedFirstValue)
+        XCTAssertNil(sut.head?.next)
+        XCTAssertNil(sut.head?.prev)
+        XCTAssertEqual(sut.tail?.value, expectedFirstValue)
+        XCTAssertNil(sut.tail?.prev)
+        XCTAssertNil(sut.tail?.next)
+        XCTAssertEqual(sut.count, 1)
+    }
 }
