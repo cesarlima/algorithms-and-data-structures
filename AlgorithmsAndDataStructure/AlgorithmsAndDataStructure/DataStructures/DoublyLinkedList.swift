@@ -141,8 +141,10 @@ final class DoublyLinkedList<T: Equatable> {
         }
         
         let result = get(at: index)
-        head?.setNext(result?.next)
-        tail?.setPrevious(result?.prev)
+        let prev = result?.prev
+        let next = result?.next
+        prev?.setNext(next)
+        next?.setPrevious(prev)
         result?.setNext(nil)
         result?.setPrevious(nil)
         count -= 1

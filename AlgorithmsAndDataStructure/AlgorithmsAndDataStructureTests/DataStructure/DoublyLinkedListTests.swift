@@ -374,25 +374,21 @@ final class DoublyLinkedListTests: XCTestCase {
     
     func test_remove_removesAtAValidIndexDecrementsCountAndReturnsRemovedNode() {
         let sut = DoublyLinkedList<Int>()
-        let expectedFirstValue = 5
-        let expectedSecondValue = 10
-        let expectedThirdValue = 12
-        sut.push(expectedFirstValue)
-        sut.push(expectedSecondValue)
-        sut.push(expectedThirdValue)
+        for value in 1...20 {
+            sut.push(value)
+        }
+        let indexToRemove = 9
+        let expectedRemovedValue = 10
         
-        let resutl = sut.remove(at: 1)
+        let resutl = sut.remove(at: indexToRemove)
         
-        XCTAssertEqual(resutl?.value, expectedSecondValue)
+        XCTAssertEqual(resutl?.value, expectedRemovedValue)
         XCTAssertNil(resutl?.prev)
         XCTAssertNil(resutl?.next)
-        XCTAssertEqual(sut.head?.value, expectedFirstValue)
-        XCTAssertEqual(sut.head?.next?.value, expectedThirdValue)
-        XCTAssertNil(sut.head?.prev)
-        XCTAssertEqual(sut.tail?.value, expectedThirdValue)
-        XCTAssertEqual(sut.tail?.prev?.value, expectedFirstValue)
-        XCTAssertNil(sut.tail?.next)
-        XCTAssertEqual(sut.count, 2)
+        XCTAssertEqual(sut.get(at: indexToRemove)?.value, expectedRemovedValue + 1)
+        XCTAssertEqual(sut.get(at: indexToRemove)?.prev?.value, expectedRemovedValue - 1)
+        XCTAssertEqual(sut.get(at: indexToRemove)?.next?.value, expectedRemovedValue + 2)
+        XCTAssertEqual(sut.count, 19)
     }
     
     func test_remove_headAndTailBecomeTheSameNodeOnAListWithTwoNodes() {
