@@ -140,6 +140,12 @@ final class DoublyLinkedList<T: Equatable> {
             return pop()
         }
         
-        return nil
+        let result = get(at: index)
+        head?.setNext(result?.next)
+        tail?.setPrevious(result?.prev)
+        result?.setNext(nil)
+        result?.setPrevious(nil)
+        count -= 1
+        return result
     }
 }
