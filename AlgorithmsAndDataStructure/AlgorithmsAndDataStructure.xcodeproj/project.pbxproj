@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E2F902C2C7F23E60080CA25 /* BinarySearchTreeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F902B2C7F23E60080CA25 /* BinarySearchTreeTests.swift */; };
 		8EA0C1AF2C622A7C0054737E /* AlgorithmsAndDataStructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA0C1A62C622A7C0054737E /* AlgorithmsAndDataStructure.framework */; };
 		8EA0C1C02C622BB10054737E /* SinglyLinkedListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA0C1BF2C622BB10054737E /* SinglyLinkedListTests.swift */; };
 		8EA0C1C32C713A810054737E /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA0C1C22C713A810054737E /* Node.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		8E2F902A2C716CE00080CA25 /* AllTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = AllTests.xctestplan; sourceTree = "<group>"; };
+		8E2F902B2C7F23E60080CA25 /* BinarySearchTreeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarySearchTreeTests.swift; sourceTree = "<group>"; };
 		8EA0C1A62C622A7C0054737E /* AlgorithmsAndDataStructure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlgorithmsAndDataStructure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EA0C1AE2C622A7C0054737E /* AlgorithmsAndDataStructureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlgorithmsAndDataStructureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EA0C1BF2C622BB10054737E /* SinglyLinkedListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglyLinkedListTests.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			children = (
 				8EA0C1BF2C622BB10054737E /* SinglyLinkedListTests.swift */,
 				8EA0C1CA2C7169660054737E /* DoublyLinkedListTests.swift */,
+				8E2F902B2C7F23E60080CA25 /* BinarySearchTreeTests.swift */,
 			);
 			path = DataStructure;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E2F902C2C7F23E60080CA25 /* BinarySearchTreeTests.swift in Sources */,
 				8EA0C1C02C622BB10054737E /* SinglyLinkedListTests.swift in Sources */,
 				8EA0C1CB2C7169660054737E /* DoublyLinkedListTests.swift in Sources */,
 			);
