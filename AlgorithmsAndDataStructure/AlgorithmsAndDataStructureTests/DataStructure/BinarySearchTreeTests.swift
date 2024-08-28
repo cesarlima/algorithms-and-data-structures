@@ -15,4 +15,13 @@ final class BinarySearchTreeTests: XCTestCase {
         
         XCTAssertNil(sut.root)
     }
+    
+    func test_insert_insertsRootInAnEmptyBST() {
+        let sut = BinarySearchTree<Int>()
+        let valueToInsert = 50
+        
+        sut.insert(valueToInsert)
+        
+        XCTAssertEqual(sut.root?.value, valueToInsert)
+    }
 }
