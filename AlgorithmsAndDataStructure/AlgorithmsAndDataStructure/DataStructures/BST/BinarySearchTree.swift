@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class BinarySearchTree<T: Equatable> {
+final class BinarySearchTree<T: Comparable> {
     private(set) var root: BSTNode<T>?
     
     func insert(_ value: T) {

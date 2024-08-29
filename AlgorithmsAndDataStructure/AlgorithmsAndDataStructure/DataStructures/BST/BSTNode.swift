@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class BSTNode<T: Equatable> {
+final class BSTNode<T: Comparable> {
     private(set) var value: T
     private(set) var left: BSTNode<T>?
     private(set) var right: BSTNode<T>?
