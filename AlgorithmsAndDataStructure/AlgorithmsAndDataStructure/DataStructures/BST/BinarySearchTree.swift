@@ -11,6 +11,10 @@ final class BinarySearchTree<T: Equatable> {
     private(set) var root: BSTNode<T>?
     
     func insert(_ value: T) {
-        root = BSTNode(value: value)
+        if root == nil {
+            root = BSTNode(value: value)
+        } else {
+            root?.setRight(BSTNode(value: value))
+        }
     }
 }
