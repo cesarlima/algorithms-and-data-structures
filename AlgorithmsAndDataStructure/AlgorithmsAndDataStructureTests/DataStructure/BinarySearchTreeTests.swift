@@ -36,4 +36,23 @@ final class BinarySearchTreeTests: XCTestCase {
         XCTAssertEqual(sut.root?.value, rootValue)
         XCTAssertEqual(sut.root?.right?.value, rightValue)
     }
+    
+    func testInsertMultipleNodes() {
+        let bst = BinarySearchTree<Int>()
+        bst.insert(10)
+        bst.insert(5)
+        bst.insert(15)
+        bst.insert(3)
+        bst.insert(7)
+        bst.insert(12)
+        bst.insert(20)
+
+        XCTAssertEqual(bst.root?.value, 10)
+        XCTAssertEqual(bst.root?.left?.value, 5)
+        XCTAssertEqual(bst.root?.right?.value, 15)
+        XCTAssertEqual(bst.root?.left?.left?.value, 3)
+        XCTAssertEqual(bst.root?.left?.right?.value, 7)
+        XCTAssertEqual(bst.root?.right?.left?.value, 12)
+        XCTAssertEqual(bst.root?.right?.right?.value, 20)
+    }
 }

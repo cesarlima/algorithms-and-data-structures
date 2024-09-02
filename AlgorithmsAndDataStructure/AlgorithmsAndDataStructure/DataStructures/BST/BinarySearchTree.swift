@@ -11,10 +11,29 @@ final class BinarySearchTree<T: Comparable> {
     private(set) var root: BSTNode<T>?
     
     func insert(_ value: T) {
-        if root == nil {
-            root = BSTNode(value: value)
-        } else {
-            root?.setRight(BSTNode(value: value))
+        let newNode = BSTNode(value: value)
+        
+        guard var parent = root else {
+            root = newNode
+            return
+        }
+        
+        while true {
+            if newNode.value > parent.value {
+                if parent.right == nil {
+                    parent.setRight(newNode)
+                    break
+                }
+                
+                parent = parent.right!
+            } else {
+                if parent.left == nil {
+                    parent.setLeft(newNode)
+                    break
+                }
+                
+                parent = parent.left!
+            }
         }
     }
 }
