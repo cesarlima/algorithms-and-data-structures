@@ -19,6 +19,10 @@ final class BinarySearchTree<T: Comparable> {
         }
         
         while true {
+            guard newNode.value != parent.value else {
+                return
+            }
+            
             if newNode.value > parent.value {
                 if parent.right == nil {
                     parent.setRight(newNode)
