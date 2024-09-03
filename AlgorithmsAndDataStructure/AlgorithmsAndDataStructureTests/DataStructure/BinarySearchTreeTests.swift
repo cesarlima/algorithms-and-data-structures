@@ -96,4 +96,16 @@ final class BinarySearchTreeTests: XCTestCase {
         XCTAssertTrue(sut.find(7))
         XCTAssertTrue(sut.find(13))
     }
+    
+    func test_find_returnsFalseOnNonExistingValue() {
+        let sut = BinarySearchTree<Int>()
+        [8, 3, 10, 1, 6, 14, 4, 7, 13].forEach { sut.insert($0) }
+        
+        XCTAssertFalse(sut.find(0))
+        XCTAssertFalse(sut.find(2))
+        XCTAssertFalse(sut.find(5))
+        XCTAssertFalse(sut.find(9))
+        XCTAssertFalse(sut.find(11))
+        XCTAssertFalse(sut.find(15))
+    }
 }

@@ -56,21 +56,15 @@ final class BinarySearchTree<T: Comparable> {
                     return false
                 }
                 
-                if current.right!.value == value {
-                    return true
-                }
-                
                 current = current.right!
-            } else {
+            } else if value < current.value {
                 if current.left == nil {
                     return false
                 }
                 
-                if current.left!.value == value {
-                    return true
-                }
-                
                 current = current.left!
+            } else {
+                return true
             }
         }
     }
