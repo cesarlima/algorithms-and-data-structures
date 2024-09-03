@@ -38,47 +38,62 @@ final class BinarySearchTreeTests: XCTestCase {
     }
     
     func testInsertLeftChild() {
-        let bst = BinarySearchTree<Int>()
-        bst.insert(10)
-        bst.insert(5)
+        let sut = BinarySearchTree<Int>()
+        sut.insert(10)
+        sut.insert(5)
 
-        XCTAssertEqual(bst.root?.value, 10)
-        XCTAssertEqual(bst.root?.left?.value, 5)
-        XCTAssertNil(bst.root?.right)
+        XCTAssertEqual(sut.root?.value, 10)
+        XCTAssertEqual(sut.root?.left?.value, 5)
+        XCTAssertNil(sut.root?.right)
     }
     
     func testInsertMultipleNodes() {
-        let bst = BinarySearchTree<Int>()
-        bst.insert(10)
-        bst.insert(5)
-        bst.insert(15)
-        bst.insert(3)
-        bst.insert(7)
-        bst.insert(12)
-        bst.insert(20)
+        let sut = BinarySearchTree<Int>()
+        sut.insert(10)
+        sut.insert(5)
+        sut.insert(15)
+        sut.insert(3)
+        sut.insert(7)
+        sut.insert(12)
+        sut.insert(20)
 
-        XCTAssertEqual(bst.root?.value, 10)
-        XCTAssertEqual(bst.root?.left?.value, 5)
-        XCTAssertEqual(bst.root?.right?.value, 15)
-        XCTAssertEqual(bst.root?.left?.left?.value, 3)
-        XCTAssertEqual(bst.root?.left?.right?.value, 7)
-        XCTAssertEqual(bst.root?.right?.left?.value, 12)
-        XCTAssertEqual(bst.root?.right?.right?.value, 20)
+        XCTAssertEqual(sut.root?.value, 10)
+        XCTAssertEqual(sut.root?.left?.value, 5)
+        XCTAssertEqual(sut.root?.right?.value, 15)
+        XCTAssertEqual(sut.root?.left?.left?.value, 3)
+        XCTAssertEqual(sut.root?.left?.right?.value, 7)
+        XCTAssertEqual(sut.root?.right?.left?.value, 12)
+        XCTAssertEqual(sut.root?.right?.right?.value, 20)
     }
     
     func testInsertDuplicateValue() {
-        let bst = BinarySearchTree<Int>()
-        bst.insert(10)
-        bst.insert(5)
-        bst.insert(10)
+        let sut = BinarySearchTree<Int>()
+        sut.insert(10)
+        sut.insert(5)
+        sut.insert(10)
 
-        XCTAssertEqual(bst.root?.value, 10)
-        XCTAssertEqual(bst.root?.left?.value, 5)
-        XCTAssertNil(bst.root?.right)
+        XCTAssertEqual(sut.root?.value, 10)
+        XCTAssertEqual(sut.root?.left?.value, 5)
+        XCTAssertNil(sut.root?.right)
     }
     
     func test_find_returnsFalseOnEmptyTree() {
-        let emptyBST = BinarySearchTree<Int>()
-        XCTAssertFalse(emptyBST.find(1))
+        let sut = BinarySearchTree<Int>()
+        XCTAssertFalse(sut.find(1))
+    }
+    
+    func test_find_returnsTrueForExistingValue() {
+        let sut = BinarySearchTree<Int>()
+        [8, 3, 10, 1, 6, 14, 4, 7, 13].forEach { sut.insert($0) }
+        
+        XCTAssertTrue(sut.find(8))
+        XCTAssertTrue(sut.find(3))
+        XCTAssertTrue(sut.find(10))
+        XCTAssertTrue(sut.find(1))
+        XCTAssertTrue(sut.find(6))
+        XCTAssertTrue(sut.find(14))
+        XCTAssertTrue(sut.find(4))
+        XCTAssertTrue(sut.find(7))
+        XCTAssertTrue(sut.find(13))
     }
 }

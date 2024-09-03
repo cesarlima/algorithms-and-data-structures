@@ -42,6 +42,36 @@ final class BinarySearchTree<T: Comparable> {
     }
     
     func find(_ value: T) -> Bool {
-        false
+        guard var current = root else {
+            return false
+        }
+        
+        if current.value == value {
+            return true
+        }
+        
+        while true {
+            if value > current.value {
+                if current.right == nil {
+                    return false
+                }
+                
+                if current.right!.value == value {
+                    return true
+                }
+                
+                current = current.right!
+            } else {
+                if current.left == nil {
+                    return false
+                }
+                
+                if current.left!.value == value {
+                    return true
+                }
+                
+                current = current.left!
+            }
+        }
     }
 }
