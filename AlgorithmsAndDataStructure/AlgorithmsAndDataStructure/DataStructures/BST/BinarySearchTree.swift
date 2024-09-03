@@ -40,4 +40,8 @@ final class BinarySearchTree<T: Comparable> {
             }
         }
     }
+    
+    func find(_ value: T) -> Bool {
+        false
+    }
 }

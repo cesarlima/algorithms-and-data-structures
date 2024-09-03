@@ -76,4 +76,9 @@ final class BinarySearchTreeTests: XCTestCase {
         XCTAssertEqual(bst.root?.left?.value, 5)
         XCTAssertNil(bst.root?.right)
     }
+    
+    func test_find_returnsFalseOnEmptyTree() {
+        let emptyBST = BinarySearchTree<Int>()
+        XCTAssertFalse(emptyBST.find(1))
+    }
 }
