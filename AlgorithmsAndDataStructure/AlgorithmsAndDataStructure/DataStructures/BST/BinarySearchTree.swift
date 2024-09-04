@@ -68,4 +68,28 @@ final class BinarySearchTree<T: Comparable> {
             }
         }
     }
+    
+    func bfs() -> [T] {
+        guard var node = root else {
+            return []
+        }
+        
+        var result = [T]()
+        var queue = [node]
+        
+        while !queue.isEmpty {
+            node = queue.removeFirst()
+            result.append(node.value)
+            
+            if let left = node.left {
+                queue.append(left)
+            }
+            
+            if let right = node.right {
+                queue.append(right)
+            }
+        }
+        
+        return result
+    }
 }

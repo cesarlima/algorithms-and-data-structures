@@ -108,4 +108,26 @@ final class BinarySearchTreeTests: XCTestCase {
         XCTAssertFalse(sut.find(11))
         XCTAssertFalse(sut.find(15))
     }
+    
+    func test_bfs_returnsEmptyOnEmptyTree() {
+        let sut = BinarySearchTree<Int>()
+        XCTAssertEqual(sut.bfs(), [])
+    }
+    
+    func test_bfs_returnsOneElementOnTreeWithOneNode() {
+        let sut = BinarySearchTree<Int>()
+        sut.insert(5)
+        
+        XCTAssertEqual(sut.bfs(), [5])
+    }
+    
+    func test_bfs_returnsElementsFromLeftToRightOnTreeWithMultipleNodes() {
+        let sut = BinarySearchTree<Int>()
+        let expectedResult = [8, 3, 10, 1, 6, 14, 4, 7, 13]
+        expectedResult.forEach { sut.insert($0) }
+        
+        let result = sut.bfs()
+        
+        XCTAssertEqual(expectedResult, result)
+    }
 }
