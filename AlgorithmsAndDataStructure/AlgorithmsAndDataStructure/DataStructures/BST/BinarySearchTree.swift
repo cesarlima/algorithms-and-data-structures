@@ -92,4 +92,8 @@ final class BinarySearchTree<T: Comparable> {
         
         return result
     }
+    
+    func dfsPreOrder() -> [T] {
+        []
+    }
 }
