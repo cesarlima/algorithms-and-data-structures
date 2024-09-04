@@ -135,4 +135,11 @@ final class BinarySearchTreeTests: XCTestCase {
         let sut = BinarySearchTree<Int>()
         XCTAssertEqual(sut.dfsPreOrder(), [])
     }
+    
+    func test_dfsPreOrder_returnsSingleElementOnTreeWithOneNode() {
+        let sut = BinarySearchTree<Int>()
+        sut.insert(5)
+        
+        XCTAssertEqual(sut.dfsPreOrder(), [5])
+    }
 }
