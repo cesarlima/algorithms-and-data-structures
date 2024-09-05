@@ -94,9 +94,25 @@ final class BinarySearchTree<T: Comparable> {
     }
     
     func dfsPreOrder() -> [T] {
-        guard let node = root else {
+        guard var currentNode = root else {
             return []
         }
-        return [node.value]
+        var result = [T]()
+        
+        func traverse(_ node: BSTNode<T>) {
+            result.append(node.value)
+            
+            if let left = node.left {
+                traverse(left)
+            }
+            
+            if let right = node.right {
+                traverse(right)
+            }
+        }
+        
+        traverse(currentNode)
+        
+        return result
     }
 }
