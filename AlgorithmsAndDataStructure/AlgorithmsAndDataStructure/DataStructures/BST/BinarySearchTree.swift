@@ -138,4 +138,8 @@ final class BinarySearchTree<T: Comparable> {
         
         return result
     }
+    
+    func dfsInOrder() -> [T] {
+        []
+    }
 }

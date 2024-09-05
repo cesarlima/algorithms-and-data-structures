@@ -199,5 +199,10 @@ final class BinarySearchTreeTests: XCTestCase {
         
         XCTAssertEqual(result, expectedResult)
     }
+    
+    func test_dfsInOrder_returnsEmptyOnEmptyTree() {
+        let sut = BinarySearchTree<Int>()
+        XCTAssertEqual(sut.dfsInOrder(), [])
+    }
 }
 
