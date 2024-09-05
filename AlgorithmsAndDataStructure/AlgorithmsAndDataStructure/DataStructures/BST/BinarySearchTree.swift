@@ -94,7 +94,7 @@ final class BinarySearchTree<T: Comparable> {
     }
     
     func dfsPreOrder() -> [T] {
-        guard var currentNode = root else {
+        guard let currentNode = root else {
             return []
         }
         var result = [T]()
