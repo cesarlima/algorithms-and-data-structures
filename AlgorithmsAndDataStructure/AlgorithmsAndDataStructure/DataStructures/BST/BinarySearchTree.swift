@@ -140,6 +140,25 @@ final class BinarySearchTree<T: Comparable> {
     }
     
     func dfsInOrder() -> [T] {
-        []
+        guard let current = root else {
+            return []
+        }
+        var result = [T]()
+        
+        func traverse(_ node: BSTNode<T>) {
+            if let left = node.left {
+                traverse(left)
+            }
+            
+            result.append(node.value)
+            
+            if let right = node.right {
+                traverse(right)
+            }
+        }
+        
+        traverse(current)
+        
+        return result
     }
 }

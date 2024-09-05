@@ -204,5 +204,22 @@ final class BinarySearchTreeTests: XCTestCase {
         let sut = BinarySearchTree<Int>()
         XCTAssertEqual(sut.dfsInOrder(), [])
     }
+    
+    func test_dfsInOrder_returnsAllElementsInOrderOnBalancedTree() {
+        let sut = BinarySearchTree<Int>()
+        let expectedResult = [1, 2, 3, 4, 5, 6, 7]
+        
+        // Create a balanced tree:
+        //       4
+        //     /   \
+        //    2     6
+        //   / \   / \
+        //  1   3 5   7
+        [4, 2, 6, 1, 3, 5, 7].forEach { sut.insert($0) }
+        
+        let result = sut.dfsInOrder()
+        
+        XCTAssertEqual(result, expectedResult)
+    }
 }
 
