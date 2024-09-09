@@ -10,6 +10,8 @@
 		8E2F902C2C7F23E60080CA25 /* BinarySearchTreeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F902B2C7F23E60080CA25 /* BinarySearchTreeTests.swift */; };
 		8E2F902F2C7F262B0080CA25 /* BinarySearchTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F902E2C7F262B0080CA25 /* BinarySearchTree.swift */; };
 		8E2F90312C7F26480080CA25 /* BSTNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F90302C7F26480080CA25 /* BSTNode.swift */; };
+		8E2F90552C8EFF1E0080CA25 /* MaxBinaryHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F90542C8EFF1E0080CA25 /* MaxBinaryHeap.swift */; };
+		8E2F90592C8EFF430080CA25 /* MaxBinaryHeapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2F90582C8EFF430080CA25 /* MaxBinaryHeapTests.swift */; };
 		8EA0C1AF2C622A7C0054737E /* AlgorithmsAndDataStructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA0C1A62C622A7C0054737E /* AlgorithmsAndDataStructure.framework */; };
 		8EA0C1C02C622BB10054737E /* SinglyLinkedListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA0C1BF2C622BB10054737E /* SinglyLinkedListTests.swift */; };
 		8EA0C1C32C713A810054737E /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA0C1C22C713A810054737E /* Node.swift */; };
@@ -34,6 +36,8 @@
 		8E2F902B2C7F23E60080CA25 /* BinarySearchTreeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarySearchTreeTests.swift; sourceTree = "<group>"; };
 		8E2F902E2C7F262B0080CA25 /* BinarySearchTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarySearchTree.swift; sourceTree = "<group>"; };
 		8E2F90302C7F26480080CA25 /* BSTNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSTNode.swift; sourceTree = "<group>"; };
+		8E2F90542C8EFF1E0080CA25 /* MaxBinaryHeap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxBinaryHeap.swift; sourceTree = "<group>"; };
+		8E2F90582C8EFF430080CA25 /* MaxBinaryHeapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxBinaryHeapTests.swift; sourceTree = "<group>"; };
 		8EA0C1A62C622A7C0054737E /* AlgorithmsAndDataStructure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlgorithmsAndDataStructure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EA0C1AE2C622A7C0054737E /* AlgorithmsAndDataStructureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlgorithmsAndDataStructureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EA0C1BF2C622BB10054737E /* SinglyLinkedListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglyLinkedListTests.swift; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				8EA0C1BE2C622B800054737E /* DataStructure */,
+				8E2F90582C8EFF430080CA25 /* MaxBinaryHeapTests.swift */,
 			);
 			path = AlgorithmsAndDataStructureTests;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 				8E2F90522C8EFE900080CA25 /* SinglyLinkedList */,
 				8E2F90532C8EFEA70080CA25 /* DoublyLinkedList */,
 				8E2F902D2C7F261F0080CA25 /* BST */,
+				8E2F90542C8EFF1E0080CA25 /* MaxBinaryHeap.swift */,
 			);
 			path = DataStructures;
 			sourceTree = "<group>";
@@ -257,6 +263,7 @@
 				8EA0C1C52C713AAB0054737E /* SinglyLinkedList.swift in Sources */,
 				8E2F90312C7F26480080CA25 /* BSTNode.swift in Sources */,
 				8EA0C1C32C713A810054737E /* Node.swift in Sources */,
+				8E2F90552C8EFF1E0080CA25 /* MaxBinaryHeap.swift in Sources */,
 				8EA0C1C72C714D490054737E /* DoublyNode.swift in Sources */,
 				8EA0C1C92C714E420054737E /* DoublyLinkedList.swift in Sources */,
 				8E2F902F2C7F262B0080CA25 /* BinarySearchTree.swift in Sources */,
@@ -270,6 +277,7 @@
 				8E2F902C2C7F23E60080CA25 /* BinarySearchTreeTests.swift in Sources */,
 				8EA0C1C02C622BB10054737E /* SinglyLinkedListTests.swift in Sources */,
 				8EA0C1CB2C7169660054737E /* DoublyLinkedListTests.swift in Sources */,
+				8E2F90592C8EFF430080CA25 /* MaxBinaryHeapTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
