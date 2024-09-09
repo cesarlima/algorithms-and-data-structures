@@ -72,6 +72,24 @@
 			path = BST;
 			sourceTree = "<group>";
 		};
+		8E2F90522C8EFE900080CA25 /* SinglyLinkedList */ = {
+			isa = PBXGroup;
+			children = (
+				8EA0C1C22C713A810054737E /* Node.swift */,
+				8EA0C1C42C713AAB0054737E /* SinglyLinkedList.swift */,
+			);
+			path = SinglyLinkedList;
+			sourceTree = "<group>";
+		};
+		8E2F90532C8EFEA70080CA25 /* DoublyLinkedList */ = {
+			isa = PBXGroup;
+			children = (
+				8EA0C1C62C714D490054737E /* DoublyNode.swift */,
+				8EA0C1C82C714E420054737E /* DoublyLinkedList.swift */,
+			);
+			path = DoublyLinkedList;
+			sourceTree = "<group>";
+		};
 		8EA0C19C2C622A7C0054737E = {
 			isa = PBXGroup;
 			children = (
@@ -120,11 +138,9 @@
 		8EA0C1C12C713A5F0054737E /* DataStructures */ = {
 			isa = PBXGroup;
 			children = (
+				8E2F90522C8EFE900080CA25 /* SinglyLinkedList */,
+				8E2F90532C8EFEA70080CA25 /* DoublyLinkedList */,
 				8E2F902D2C7F261F0080CA25 /* BST */,
-				8EA0C1C22C713A810054737E /* Node.swift */,
-				8EA0C1C42C713AAB0054737E /* SinglyLinkedList.swift */,
-				8EA0C1C62C714D490054737E /* DoublyNode.swift */,
-				8EA0C1C82C714E420054737E /* DoublyLinkedList.swift */,
 			);
 			path = DataStructures;
 			sourceTree = "<group>";
