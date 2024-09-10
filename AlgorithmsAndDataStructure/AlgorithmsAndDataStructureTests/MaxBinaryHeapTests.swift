@@ -15,4 +15,13 @@ final class MaxBinaryHeapTests: XCTestCase {
         
         XCTAssertTrue(sut.values.isEmpty)
     }
+    
+    func test_insert_addsElementToEmptyHeap() {
+        let sut = MaxBinaryHeap<Int>()
+        
+        sut.insert(1)
+        
+        XCTAssertEqual(sut.values.count, 1)
+        XCTAssertEqual(sut.values.first, 1)
+    }
 }

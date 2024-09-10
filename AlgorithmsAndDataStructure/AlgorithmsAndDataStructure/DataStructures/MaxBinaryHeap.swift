@@ -13,4 +13,8 @@ final class MaxBinaryHeap<T: Comparable> {
     init() {
         values = []
     }
+    
+    func insert(_ value: T) {
+        values.append(value)
+    }
 }
