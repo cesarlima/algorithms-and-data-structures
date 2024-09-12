@@ -24,4 +24,18 @@ final class MaxBinaryHeapTests: XCTestCase {
         XCTAssertEqual(sut.values.count, 1)
         XCTAssertEqual(sut.values.first, 1)
     }
+    
+    func test_insert_addsMultipleElementsInCorrectOrder() {
+        let sut = MaxBinaryHeap<Int>()
+        [10, 20, 25, 15, 30].forEach { sut.insert($0) }
+        let expectedResult = [30, 25, 20, 10, 15]
+        // Heap structure:
+        //        30
+        //       /  \
+        //     25    20
+        //    /  \
+        //   10  15
+        
+        XCTAssertEqual(sut.values, expectedResult)
+    }
 }

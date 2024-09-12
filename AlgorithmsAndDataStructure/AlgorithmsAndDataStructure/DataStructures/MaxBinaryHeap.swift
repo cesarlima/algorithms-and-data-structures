@@ -16,5 +16,17 @@ final class MaxBinaryHeap<T: Comparable> {
     
     func insert(_ value: T) {
         values.append(value)
+        var childIndex = values.count - 1
+        
+        while childIndex > 0 {
+            let parentIndex = (childIndex - 1) / 2
+            
+            guard values[childIndex] > values[parentIndex] else {
+                return
+            }
+            
+            values.swapAt(childIndex, parentIndex)
+            childIndex = parentIndex
+        }
     }
 }
