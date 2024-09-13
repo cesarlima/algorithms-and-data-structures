@@ -29,4 +29,8 @@ final class MaxBinaryHeap<T: Comparable> {
             childIndex = parentIndex
         }
     }
+    
+    func extractMax() -> T? {
+        return nil
+    }
 }
