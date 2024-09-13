@@ -31,6 +31,10 @@ final class MaxBinaryHeap<T: Comparable> {
     }
     
     func extractMax() -> T? {
-        return nil
+        guard !values.isEmpty else {
+            return nil
+        }
+        
+        return values.removeFirst()
     }
 }

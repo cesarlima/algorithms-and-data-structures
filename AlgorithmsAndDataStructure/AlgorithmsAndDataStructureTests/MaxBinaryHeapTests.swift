@@ -46,4 +46,14 @@ final class MaxBinaryHeapTests: XCTestCase {
         
         XCTAssertNil(result)
     }
+    
+    func test_extractMax_removesAndReturnsMaxElementFromHeap() {
+        let sut = MaxBinaryHeap<Int>()
+        [41, 39, 33, 18, 27, 12].forEach{ sut.insert($0) }
+        
+        let result = sut.extractMax()
+        
+        XCTAssertEqual(result, 41)
+        XCTAssertEqual(sut.values.count, 5)
+    }
 }
