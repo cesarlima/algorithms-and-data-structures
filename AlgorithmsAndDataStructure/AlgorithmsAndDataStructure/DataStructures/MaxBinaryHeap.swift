@@ -35,6 +35,36 @@ final class MaxBinaryHeap<T: Comparable> {
             return nil
         }
         
-        return values.removeFirst()
+        var elementIndex = 0
+        let lastIndex = values.count - 1
+        values.swapAt(elementIndex, lastIndex)
+        let element = values[elementIndex]
+        let result = values.removeLast()
+        let totalElements = values.count
+        
+        while true {
+            let leftChildIndex = elementIndex * 2 + 1
+            let rightChildIndex = elementIndex * 2 + 2
+            guard totalElements > leftChildIndex,
+                  totalElements >= rightChildIndex else {
+                return result
+            }
+            
+            let leftChildValue = values[leftChildIndex]
+            let righChildValue = values[rightChildIndex]
+            
+            if element < leftChildValue
+                && leftChildValue > righChildValue {
+                values.swapAt(elementIndex, leftChildIndex)
+                elementIndex = leftChildIndex
+            } else if element < righChildValue {
+                values.swapAt(elementIndex, rightChildIndex)
+                elementIndex = rightChildIndex
+            } else {
+                break
+            }
+        }
+        
+        return result
     }
 }
