@@ -35,36 +35,42 @@ final class MaxBinaryHeap<T: Comparable> {
             return nil
         }
         
-        var elementIndex = 0
-        let lastIndex = values.count - 1
-        values.swapAt(elementIndex, lastIndex)
-        let element = values[elementIndex]
-        let result = values.removeLast()
+        guard values.count > 1 else {
+            return values.removeLast()
+        }
+       
+        let result = values[0]
+        values[0] = values.removeLast()
+        sinkDown(from: 0)
+        
+        return result
+    }
+    
+    private func sinkDown(from index: Int) {
+        var index = index
+        var largestIndex = index
         let totalElements = values.count
         
         while true {
-            let leftChildIndex = elementIndex * 2 + 1
-            let rightChildIndex = elementIndex * 2 + 2
-            guard totalElements > leftChildIndex,
-                  totalElements >= rightChildIndex else {
-                return result
+            let leftChildIndex = index * 2 + 1
+            let rightChildIndex = index * 2 + 2
+            
+            if leftChildIndex < totalElements 
+                && values[leftChildIndex] > values[largestIndex] {
+                largestIndex = leftChildIndex
             }
             
-            let leftChildValue = values[leftChildIndex]
-            let righChildValue = values[rightChildIndex]
+            if rightChildIndex < totalElements
+                && values[rightChildIndex] > values[largestIndex] {
+                largestIndex = rightChildIndex
+            }
             
-            if element < leftChildValue
-                && leftChildValue > righChildValue {
-                values.swapAt(elementIndex, leftChildIndex)
-                elementIndex = leftChildIndex
-            } else if element < righChildValue {
-                values.swapAt(elementIndex, rightChildIndex)
-                elementIndex = rightChildIndex
-            } else {
+            if largestIndex == index {
                 break
             }
+            
+            values.swapAt(index, largestIndex)
+            index = largestIndex
         }
-        
-        return result
     }
 }
